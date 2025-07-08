@@ -158,14 +158,14 @@
   padding: var(--spacing-lg);
   box-shadow: var(--shadow-sm);
   border: 1px solid var(--border-color);
+   margin-top: var(--spacing-md);
   margin-bottom: var(--spacing-lg);
 }
 
 .progress-habit-header {
   display: flex;
   align-items: center;
- 
-  margin-top: var(--spacing-md);
+  gap: var(--spacing-md);
   margin-bottom: var(--spacing-lg);
 }
 
