@@ -104,6 +104,90 @@ export const habitsData = {
       }
     ]
   },
+  'brush-properly': {
+    id: 'brush-properly',
+    name: 'Brush Properly',
+    type: 'build',
+    image: 'https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?w=80&h=80&fit=crop&crop=center',
+    description: 'Proper brushing prevents cavities, freshens breath, and improves long-term dental and heart health. Good oral hygiene is linked to overall health and can prevent serious health issues.',
+    methods: [
+      {
+        title: 'Trigger Cue',
+        description: 'Keep your toothbrush on top of your phone or planner as a visual trigger.'
+      },
+      {
+        title: 'Technique Reminder',
+        description: 'Use the 2-minute rule and a timer to ensure you brush properly.'
+      },
+      {
+        title: 'Habit Reinforcement',
+        description: 'Play a favorite short song while brushing to make the process more enjoyable.'
+      }
+    ]
+  },
+  'use-conditioner': {
+    id: 'use-conditioner',
+    name: 'Use Conditioner',
+    type: 'build',
+    image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=80&h=80&fit=crop&crop=center',
+    description: 'Conditioner reduces hair breakage, improves texture, and supports long-term hair health. Regular conditioning keeps hair manageable and protects it from environmental damage.',
+    methods: [
+      {
+        title: 'Pairing Cue',
+        description: 'Always apply right after shampooing to make it a sequential habit.'
+      },
+      {
+        title: 'Sensory Reward',
+        description: 'Focus on the feel of soft hair as immediate feedback.'
+      },
+      {
+        title: 'Minimal Effort Rule',
+        description: 'Use leave-in conditioner if time is tight, to maintain consistency.'
+      }
+    ]
+  },
+  'skin-care': {
+    id: 'skin-care',
+    name: 'Skin Care',
+    type: 'build',
+    image: 'https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=80&h=80&fit=crop&crop=center',
+    description: 'Healthy skin boosts confidence, protects from damage, and slows aging. A consistent skincare routine helps maintain skin health and can prevent various skin issues.',
+    methods: [
+      {
+        title: 'Morning & Night Ritual',
+        description: 'Tie skincare to brushing your teeth (habit stacking).'
+      },
+      {
+        title: 'Progress Tracker',
+        description: 'Take weekly photos to visibly see improvement.'
+      },
+      {
+        title: 'Enjoy the Process',
+        description: 'Focus on the relaxing, tactile nature of applying products.'
+      }
+    ]
+  },
+  'clean-room': {
+    id: 'clean-room',
+    name: 'Clean Room',
+    type: 'build',
+    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=80&h=80&fit=crop&crop=center',
+    description: 'A clean environment reduces stress, boosts focus, and promotes better sleep. Maintaining an organized space improves mental clarity and overall well-being.',
+    methods: [
+      {
+        title: '2-Minute Rule',
+        description: 'Start with one small action (e.g., making your bed).'
+      },
+      {
+        title: 'Visual Timer',
+        description: 'Set a 5-minute timer and clean what you can in that window.'
+      },
+      {
+        title: 'End-of-Day Routine',
+        description: 'Make it the last thing you do before bed.'
+      }
+    ]
+  },
   'procrastination': {
     id: 'procrastination',
     name: 'Stop Procrastinating',
