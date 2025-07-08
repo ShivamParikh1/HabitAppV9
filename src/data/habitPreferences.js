@@ -395,6 +395,281 @@ export const habitPreferencesConfig = {
       return frequency === 'twice-daily' ? 2 : 1
     }
   },
+  'eat-fruit': {
+    fields: [
+      {
+        key: 'dailyServings',
+        label: 'Daily Fruit Servings Goal',
+        type: 'number',
+        min: 1,
+        max: 8,
+        defaultValue: 2,
+        required: true,
+        description: 'How many servings of fruit do you want to eat per day?'
+      },
+      {
+        key: 'preferredTimes',
+        label: 'Preferred Times to Eat Fruit',
+        type: 'select',
+        options: [
+          { value: 'morning', label: 'Morning (before breakfast)' },
+          { value: 'snacks', label: 'As snacks between meals' },
+          { value: 'with-meals', label: 'With meals' },
+          { value: 'evening', label: 'Evening' },
+          { value: 'anytime', label: 'Anytime throughout the day' }
+        ],
+        defaultValue: 'snacks',
+        description: 'When do you prefer to eat fruit?'
+      },
+      {
+        key: 'fruitTypes',
+        label: 'Preferred Fruit Types',
+        type: 'text',
+        placeholder: 'e.g., apples, bananas, berries, oranges',
+        description: 'What types of fruit do you enjoy most?'
+      },
+      {
+        key: 'reminderTimes',
+        label: 'Reminder Times',
+        type: 'time-list',
+        placeholder: '10:00 AM, 3:00 PM',
+        description: 'When would you like to be reminded to eat fruit?'
+      }
+    ],
+    completionType: 'multi',
+    getTargetCount: (preferences) => preferences.dailyServings || 2
+  },
+  'study-finance': {
+    fields: [
+      {
+        key: 'studyDuration',
+        label: 'Daily Study Duration (minutes)',
+        type: 'number',
+        min: 5,
+        max: 120,
+        defaultValue: 15,
+        required: true,
+        description: 'How many minutes do you want to study finance daily?'
+      },
+      {
+        key: 'learningMethod',
+        label: 'Preferred Learning Method',
+        type: 'select',
+        options: [
+          { value: 'videos', label: 'Educational Videos' },
+          { value: 'articles', label: 'Articles & Blogs' },
+          { value: 'books', label: 'Books' },
+          { value: 'podcasts', label: 'Podcasts' },
+          { value: 'courses', label: 'Online Courses' },
+          { value: 'mixed', label: 'Mix of Different Methods' }
+        ],
+        defaultValue: 'videos',
+        description: 'How do you prefer to learn about finance?'
+      },
+      {
+        key: 'focusArea',
+        label: 'Primary Focus Area',
+        type: 'select',
+        options: [
+          { value: 'budgeting', label: 'Budgeting & Saving' },
+          { value: 'investing', label: 'Investing & Stocks' },
+          { value: 'debt', label: 'Debt Management' },
+          { value: 'retirement', label: 'Retirement Planning' },
+          { value: 'general', label: 'General Financial Literacy' },
+          { value: 'business', label: 'Business & Entrepreneurship' }
+        ],
+        defaultValue: 'general',
+        description: 'What area of finance interests you most?'
+      },
+      {
+        key: 'studyTime',
+        label: 'Preferred Study Time',
+        type: 'select',
+        options: [
+          { value: 'morning', label: 'Morning (6-10 AM)' },
+          { value: 'afternoon', label: 'Afternoon (12-4 PM)' },
+          { value: 'evening', label: 'Evening (6-9 PM)' },
+          { value: 'night', label: 'Night (9-11 PM)' }
+        ],
+        defaultValue: 'evening',
+        description: 'When do you prefer to study finance?'
+      }
+    ],
+    completionType: 'single',
+    getTargetCount: () => 1
+  },
+  'help-someone': {
+    fields: [
+      {
+        key: 'helpType',
+        label: 'Type of Help',
+        type: 'select',
+        options: [
+          { value: 'emotional', label: 'Emotional Support (listening, encouragement)' },
+          { value: 'practical', label: 'Practical Help (tasks, errands)' },
+          { value: 'gratitude', label: 'Expressing Gratitude & Appreciation' },
+          { value: 'quality-time', label: 'Spending Quality Time' },
+          { value: 'mixed', label: 'Mix of Different Types' }
+        ],
+        defaultValue: 'mixed',
+        description: 'What type of help do you want to focus on?'
+      },
+      {
+        key: 'targetPeople',
+        label: 'Who Do You Want to Help?',
+        type: 'text',
+        placeholder: 'e.g., family, friends, partner, colleagues',
+        description: 'Who are the important people in your life you want to help?'
+      },
+      {
+        key: 'reminderTime',
+        label: 'Daily Reminder Time',
+        type: 'text',
+        placeholder: '9:00 AM',
+        description: 'When should we remind you to help someone?'
+      },
+      {
+        key: 'reflectionMethod',
+        label: 'How Will You Track Impact?',
+        type: 'select',
+        options: [
+          { value: 'journal', label: 'Write in a journal' },
+          { value: 'mental-note', label: 'Mental reflection' },
+          { value: 'gratitude-app', label: 'Use gratitude app' },
+          { value: 'none', label: 'No tracking needed' }
+        ],
+        defaultValue: 'mental-note',
+        description: 'How do you want to reflect on your acts of kindness?'
+      }
+    ],
+    completionType: 'single',
+    getTargetCount: () => 1
+  },
+  'pray': {
+    fields: [
+      {
+        key: 'prayerDuration',
+        label: 'Prayer Duration (minutes)',
+        type: 'number',
+        min: 1,
+        max: 60,
+        defaultValue: 5,
+        required: true,
+        description: 'How long do you want to pray each time?'
+      },
+      {
+        key: 'prayerTimes',
+        label: 'Prayer Frequency',
+        type: 'select',
+        options: [
+          { value: 'once', label: 'Once per day' },
+          { value: 'twice', label: 'Twice per day (morning & evening)' },
+          { value: 'three', label: 'Three times per day' },
+          { value: 'five', label: 'Five times per day' },
+          { value: 'custom', label: 'Custom schedule' }
+        ],
+        defaultValue: 'once',
+        description: 'How often do you want to pray each day?'
+      },
+      {
+        key: 'preferredTime',
+        label: 'Preferred Prayer Time',
+        type: 'select',
+        options: [
+          { value: 'wake-up', label: 'Right after waking up' },
+          { value: 'morning', label: 'Morning (6-10 AM)' },
+          { value: 'afternoon', label: 'Afternoon (12-4 PM)' },
+          { value: 'evening', label: 'Evening (6-9 PM)' },
+          { value: 'before-bed', label: 'Before going to bed' }
+        ],
+        defaultValue: 'morning',
+        description: 'When do you prefer to pray?'
+      },
+      {
+        key: 'prayerFocus',
+        label: 'Prayer Focus',
+        type: 'select',
+        options: [
+          { value: 'gratitude', label: 'Gratitude & Thanksgiving' },
+          { value: 'guidance', label: 'Guidance & Wisdom' },
+          { value: 'strength', label: 'Strength & Peace' },
+          { value: 'others', label: 'Prayers for Others' },
+          { value: 'mixed', label: 'Mix of Different Focuses' }
+        ],
+        defaultValue: 'mixed',
+        description: 'What do you want to focus on in your prayers?'
+      }
+    ],
+    completionType: 'multi',
+    getTargetCount: (preferences) => {
+      const frequency = preferences.prayerTimes || 'once'
+      const frequencyMap = {
+        'once': 1,
+        'twice': 2,
+        'three': 3,
+        'five': 5,
+        'custom': 1
+      }
+      return frequencyMap[frequency] || 1
+    }
+  },
+  'cut-calories': {
+    fields: [
+      {
+        key: 'calorieGoal',
+        label: 'Daily Calorie Goal',
+        type: 'number',
+        min: 1200,
+        max: 3500,
+        defaultValue: 2000,
+        required: true,
+        description: 'What is your target daily calorie intake?'
+      },
+      {
+        key: 'trackingMethod',
+        label: 'Tracking Method',
+        type: 'select',
+        options: [
+          { value: 'app', label: 'Food tracking app (MyFitnessPal, etc.)' },
+          { value: 'journal', label: 'Food journal/diary' },
+          { value: 'portion-control', label: 'Portion control (visual cues)' },
+          { value: 'mindful-eating', label: 'Mindful eating practices' },
+          { value: 'mixed', label: 'Combination of methods' }
+        ],
+        defaultValue: 'app',
+        description: 'How do you want to track your calorie intake?'
+      },
+      {
+        key: 'mealStrategy',
+        label: 'Meal Strategy',
+        type: 'select',
+        options: [
+          { value: 'three-meals', label: 'Three main meals' },
+          { value: 'small-frequent', label: 'Small frequent meals (5-6 times)' },
+          { value: 'intermittent', label: 'Intermittent fasting' },
+          { value: 'flexible', label: 'Flexible approach' }
+        ],
+        defaultValue: 'three-meals',
+        description: 'What meal pattern works best for you?'
+      },
+      {
+        key: 'primaryGoal',
+        label: 'Primary Goal',
+        type: 'select',
+        options: [
+          { value: 'weight-loss', label: 'Weight Loss' },
+          { value: 'weight-maintain', label: 'Weight Maintenance' },
+          { value: 'energy-levels', label: 'Better Energy Levels' },
+          { value: 'health', label: 'Overall Health Improvement' },
+          { value: 'muscle-gain', label: 'Muscle Gain with Fat Loss' }
+        ],
+        defaultValue: 'health',
+        description: 'What is your main goal with calorie management?'
+      }
+    ],
+    completionType: 'single',
+    getTargetCount: () => 1
+  },
   'clean-room': {
     fields: [
       {
