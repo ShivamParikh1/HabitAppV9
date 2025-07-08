@@ -164,7 +164,7 @@
 .progress-habit-header {
   display: flex;
   align-items: center;
-  gap: var(--spacing-md);
+ 
   margin-top: var(--spacing-md);
   margin-bottom: var(--spacing-lg);
 }
