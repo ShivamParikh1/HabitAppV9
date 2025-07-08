@@ -229,7 +229,7 @@ export const habitPreferencesConfig = {
     ],
     completionType: 'single',
     getTargetCount: () => 1
-  }
+  },
   'brush-properly': {
     fields: [
       {
