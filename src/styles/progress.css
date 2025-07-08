@@ -155,7 +155,7 @@
 .progress-habit-card {
   background: white;
   border-radius: var(--border-radius);
-  padding: var(--spacing-lg);
+
   box-shadow: var(--shadow-sm);
   border: 1px solid var(--border-color);
   margin-top: var(--spacing-md);
