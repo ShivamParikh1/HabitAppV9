@@ -153,7 +153,7 @@
 }
 
 .progress-habit-card {
-  background: black;
+  background: white;
   border-radius: var(--border-radius);
   padding: var(--spacing-lg);
   box-shadow: var(--shadow-sm);
