@@ -230,6 +230,227 @@ export const habitPreferencesConfig = {
     completionType: 'single',
     getTargetCount: () => 1
   }
+  'brush-properly': {
+    fields: [
+      {
+        key: 'brushingDuration',
+        label: 'Brushing Duration (minutes)',
+        type: 'number',
+        min: 1,
+        max: 5,
+        defaultValue: 2,
+        required: true,
+        description: 'How long do you want to brush your teeth?'
+      },
+      {
+        key: 'timesPerDay',
+        label: 'Times Per Day',
+        type: 'number',
+        min: 1,
+        max: 4,
+        defaultValue: 2,
+        required: true,
+        description: 'How many times per day do you want to brush?'
+      },
+      {
+        key: 'preferredTime',
+        label: 'Preferred Times',
+        type: 'select',
+        options: [
+          { value: 'morning-night', label: 'Morning & Night' },
+          { value: 'after-meals', label: 'After Each Meal' },
+          { value: 'morning-afternoon-night', label: 'Morning, Afternoon & Night' },
+          { value: 'custom', label: 'Custom Schedule' }
+        ],
+        defaultValue: 'morning-night',
+        description: 'When do you prefer to brush your teeth?'
+      },
+      {
+        key: 'toothbrushType',
+        label: 'Toothbrush Type',
+        type: 'select',
+        options: [
+          { value: 'manual', label: 'Manual Toothbrush' },
+          { value: 'electric', label: 'Electric Toothbrush' },
+          { value: 'sonic', label: 'Sonic Toothbrush' }
+        ],
+        defaultValue: 'manual',
+        description: 'What type of toothbrush do you use?'
+      }
+    ],
+    completionType: 'multi',
+    getTargetCount: (preferences) => preferences.timesPerDay || 2
+  },
+  'use-conditioner': {
+    fields: [
+      {
+        key: 'conditionerType',
+        label: 'Conditioner Type',
+        type: 'select',
+        options: [
+          { value: 'rinse-out', label: 'Rinse-out Conditioner' },
+          { value: 'leave-in', label: 'Leave-in Conditioner' },
+          { value: 'deep-conditioning', label: 'Deep Conditioning Treatment' },
+          { value: 'mixed', label: 'Mix of Different Types' }
+        ],
+        defaultValue: 'rinse-out',
+        description: 'What type of conditioner do you prefer to use?'
+      },
+      {
+        key: 'frequency',
+        label: 'Usage Frequency',
+        type: 'select',
+        options: [
+          { value: 'daily', label: 'Every Day' },
+          { value: 'every-wash', label: 'Every Time I Wash Hair' },
+          { value: 'alternate', label: 'Every Other Wash' },
+          { value: 'weekly', label: 'Once a Week' }
+        ],
+        defaultValue: 'every-wash',
+        description: 'How often do you want to use conditioner?'
+      },
+      {
+        key: 'hairType',
+        label: 'Hair Type',
+        type: 'select',
+        options: [
+          { value: 'dry', label: 'Dry Hair' },
+          { value: 'oily', label: 'Oily Hair' },
+          { value: 'normal', label: 'Normal Hair' },
+          { value: 'curly', label: 'Curly Hair' },
+          { value: 'straight', label: 'Straight Hair' },
+          { value: 'damaged', label: 'Damaged Hair' }
+        ],
+        defaultValue: 'normal',
+        description: 'What best describes your hair type?'
+      },
+      {
+        key: 'applicationTime',
+        label: 'Application Time (minutes)',
+        type: 'number',
+        min: 1,
+        max: 10,
+        defaultValue: 3,
+        description: 'How long do you leave conditioner in your hair?'
+      }
+    ],
+    completionType: 'single',
+    getTargetCount: () => 1
+  },
+  'skin-care': {
+    fields: [
+      {
+        key: 'routineType',
+        label: 'Routine Type',
+        type: 'select',
+        options: [
+          { value: 'basic', label: 'Basic (Cleanser + Moisturizer)' },
+          { value: 'intermediate', label: 'Intermediate (+ Toner/Serum)' },
+          { value: 'advanced', label: 'Advanced (Full Multi-Step)' },
+          { value: 'custom', label: 'Custom Routine' }
+        ],
+        defaultValue: 'basic',
+        description: 'What level of skincare routine do you want to maintain?'
+      },
+      {
+        key: 'frequency',
+        label: 'Routine Frequency',
+        type: 'select',
+        options: [
+          { value: 'twice-daily', label: 'Morning & Night' },
+          { value: 'once-daily', label: 'Once Daily' },
+          { value: 'night-only', label: 'Night Only' },
+          { value: 'morning-only', label: 'Morning Only' }
+        ],
+        defaultValue: 'twice-daily',
+        description: 'How often do you want to do your skincare routine?'
+      },
+      {
+        key: 'skinType',
+        label: 'Skin Type',
+        type: 'select',
+        options: [
+          { value: 'normal', label: 'Normal' },
+          { value: 'dry', label: 'Dry' },
+          { value: 'oily', label: 'Oily' },
+          { value: 'combination', label: 'Combination' },
+          { value: 'sensitive', label: 'Sensitive' }
+        ],
+        defaultValue: 'normal',
+        description: 'What is your skin type?'
+      },
+      {
+        key: 'timeCommitment',
+        label: 'Time Commitment (minutes)',
+        type: 'number',
+        min: 2,
+        max: 30,
+        defaultValue: 5,
+        description: 'How many minutes do you want to spend on skincare?'
+      }
+    ],
+    completionType: 'multi',
+    getTargetCount: (preferences) => {
+      const frequency = preferences.frequency || 'twice-daily'
+      return frequency === 'twice-daily' ? 2 : 1
+    }
+  },
+  'clean-room': {
+    fields: [
+      {
+        key: 'cleaningDuration',
+        label: 'Daily Cleaning Time (minutes)',
+        type: 'number',
+        min: 2,
+        max: 60,
+        defaultValue: 10,
+        required: true,
+        description: 'How many minutes do you want to spend cleaning daily?'
+      },
+      {
+        key: 'preferredTime',
+        label: 'Preferred Cleaning Time',
+        type: 'select',
+        options: [
+          { value: 'morning', label: 'Morning (After Waking)' },
+          { value: 'evening', label: 'Evening (Before Bed)' },
+          { value: 'afternoon', label: 'Afternoon' },
+          { value: 'flexible', label: 'Flexible/Whenever' }
+        ],
+        defaultValue: 'evening',
+        description: 'When do you prefer to clean your room?'
+      },
+      {
+        key: 'cleaningStyle',
+        label: 'Cleaning Approach',
+        type: 'select',
+        options: [
+          { value: 'quick-tidy', label: 'Quick Tidy (Make bed, pick up items)' },
+          { value: 'deep-clean', label: 'Deep Clean (Vacuum, dust, organize)' },
+          { value: 'zone-cleaning', label: 'Zone Cleaning (One area at a time)' },
+          { value: 'maintenance', label: 'Maintenance (Keep things organized)' }
+        ],
+        defaultValue: 'quick-tidy',
+        description: 'What type of cleaning approach works best for you?'
+      },
+      {
+        key: 'motivation',
+        label: 'Primary Motivation',
+        type: 'select',
+        options: [
+          { value: 'stress-reduction', label: 'Reduce Stress & Anxiety' },
+          { value: 'productivity', label: 'Improve Focus & Productivity' },
+          { value: 'better-sleep', label: 'Better Sleep Quality' },
+          { value: 'self-discipline', label: 'Build Self-Discipline' },
+          { value: 'aesthetics', label: 'Visual Appeal & Pride' }
+        ],
+        defaultValue: 'stress-reduction',
+        description: 'What motivates you most to keep your room clean?'
+      }
+    ],
+    completionType: 'single',
+    getTargetCount: () => 1
+  }
 }
 
 // Helper function to get preference config for a habit

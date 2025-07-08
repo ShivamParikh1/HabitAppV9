@@ -194,5 +194,195 @@ export const habitsData = {
   }
 }
 
+export const habitsData = {
+  'drink-water': {
+    id: 'drink-water',
+    name: 'Drink More Water',
+    type: 'build',
+    image: 'https://images.unsplash.com/photo-1548839140-29a749e1cf4d?w=80&h=80&fit=crop&crop=center',
+    description: 'Staying hydrated is crucial for your physical and mental health. Proper hydration boosts energy, improves brain function, and helps maintain healthy skin. Most people don\'t drink enough water daily, making this a simple but powerful habit to develop.',
+    methods: [
+      {
+        title: 'Habit Stacking',
+        description: 'After brushing your teeth in the morning, drink 1 full glass of water immediately.'
+      },
+      {
+        title: 'Visual Cue Placement',
+        description: 'Keep a water bottle visible on your desk or workspace as a constant reminder.'
+      },
+      {
+        title: 'Tracking Trick',
+        description: 'Set 3 phone alarms throughout the day as water reminders.'
+      }
+    ]
+  },
+  'wake-early': {
+    id: 'wake-early',
+    name: 'Wake Up Early',
+    type: 'build',
+    image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=80&h=80&fit=crop&crop=center',
+    description: 'Early risers often report higher productivity, better mental health, and more time for personal activities. Waking up early gives you a head start on the day and creates a sense of accomplishment before most people are even awake.',
+    methods: [
+      {
+        title: 'Environment Setup',
+        description: 'Place your phone/alarm clock across the room so you have to get up to turn it off.'
+      },
+      {
+        title: 'Identity Shift',
+        description: 'Visualize yourself as an early riser and the benefits you\'ll gain from morning time.'
+      },
+      {
+        title: 'Cue Anchoring',
+        description: 'Lay out your clothes the night before as a signal to go to bed early.'
+      }
+    ]
+  },
+  'meditation': {
+    id: 'meditation',
+    name: 'Practice Meditation',
+    type: 'build',
+    image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=80&h=80&fit=crop&crop=center',
+    description: 'Meditation reduces stress, improves focus, and enhances emotional well-being. Even just a few minutes of daily meditation can significantly impact your mental clarity and overall happiness.',
+    methods: [
+      {
+        title: 'Tiny Habits',
+        description: 'Start with just 1 minute of silence and deep breathing right after waking up.'
+      },
+      {
+        title: 'Habit Buddy',
+        description: 'Invite a friend to meditate with you and share daily check-ins for accountability.'
+      },
+      {
+        title: 'Reward Loop',
+        description: 'After meditating, write down one thing you\'re grateful for as a positive reinforcement.'
+      }
+    ]
+  },
+  'exercise': {
+    id: 'exercise',
+    name: 'Daily Exercise',
+    type: 'build',
+    image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=80&h=80&fit=crop&crop=center',
+    description: 'Regular exercise improves physical health, mental well-being, and energy levels. Even 15-20 minutes of daily movement can make a significant difference.',
+    methods: [
+      {
+        title: 'Start Small',
+        description: 'Begin with just 10 minutes of walking or light stretching each day.'
+      },
+      {
+        title: 'Schedule It',
+        description: 'Block out specific time in your calendar for exercise, treating it like an important appointment.'
+      },
+      {
+        title: 'Find What You Enjoy',
+        description: 'Choose activities you actually like - dancing, hiking, sports, or gym workouts.'
+      }
+    ]
+  },
+  'reading': {
+    id: 'reading',
+    name: 'Daily Reading',
+    type: 'build',
+    image: 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=80&h=80&fit=crop&crop=center',
+    description: 'Reading regularly expands knowledge, improves vocabulary, reduces stress, and enhances cognitive function. It\'s one of the best investments in personal growth.',
+    methods: [
+      {
+        title: 'Read Before Bed',
+        description: 'Replace screen time with 15-20 minutes of reading before sleep.'
+      },
+      {
+        title: 'Always Carry a Book',
+        description: 'Keep a book or e-reader with you to read during waiting times or commutes.'
+      },
+      {
+        title: 'Set Page Goals',
+        description: 'Start with just 5-10 pages per day and gradually increase.'
+      }
+    ]
+  },
+  'brush-properly': {
+    id: 'brush-properly',
+    name: 'Brush Properly',
+    type: 'build',
+    image: 'https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=80&h=80&fit=crop&crop=center',
+    description: 'Proper brushing prevents cavities, freshens breath, and improves long-term dental and heart health. Good oral hygiene is linked to overall health and confidence.',
+    methods: [
+      {
+        title: 'Trigger Cue',
+        description: 'Keep your toothbrush on top of your phone or planner as a visual trigger.'
+      },
+      {
+        title: 'Technique Reminder',
+        description: 'Use the 2-minute rule and a timer to ensure you brush properly.'
+      },
+      {
+        title: 'Habit Reinforcement',
+        description: 'Play a favorite short song while brushing to make the process more enjoyable.'
+      }
+    ]
+  },
+  'use-conditioner': {
+    id: 'use-conditioner',
+    name: 'Use Conditioner',
+    type: 'build',
+    image: 'https://images.unsplash.com/photo-1522338242992-e1a54906a8da?w=80&h=80&fit=crop&crop=center',
+    description: 'Conditioner reduces hair breakage, improves texture, and supports long-term hair health. Regular conditioning keeps hair manageable and healthy-looking.',
+    methods: [
+      {
+        title: 'Pairing Cue',
+        description: 'Always apply right after shampooing to make it a sequential habit.'
+      },
+      {
+        title: 'Sensory Reward',
+        description: 'Focus on the feel of soft hair as immediate feedback.'
+      },
+      {
+        title: 'Minimal Effort Rule',
+        description: 'Use leave-in conditioner if time is tight, to maintain consistency.'
+      }
+    ]
+  },
+  'skin-care': {
+    id: 'skin-care',
+    name: 'Skin Care',
+    type: 'build',
+    image: 'https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=80&h=80&fit=crop&crop=center',
+    description: 'Healthy skin boosts confidence, protects from damage, and slows aging. A consistent skincare routine is an investment in your long-term appearance and health.',
+    methods: [
+      {
+        title: 'Morning & Night Ritual',
+        description: 'Tie skincare to brushing your teeth (habit stacking).'
+      },
+      {
+        title: 'Progress Tracker',
+        description: 'Take weekly photos to visibly see improvement.'
+      },
+      {
+        title: 'Enjoy the Process',
+        description: 'Focus on the relaxing, tactile nature of applying products.'
+      }
+    ]
+  },
+  'clean-room': {
+    id: 'clean-room',
+    name: 'Clean Room',
+    type: 'build',
+    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=80&h=80&fit=crop&crop=center',
+    description: 'A clean environment reduces stress, boosts focus, and promotes better sleep. Maintaining an organized space creates a sense of control and accomplishment.',
+    methods: [
+      {
+        title: '2-Minute Rule',
+        description: 'Start with one small action (e.g., making your bed).'
+      },
+      {
+        title: 'Visual Timer',
+        description: 'Set a 5-minute timer and clean what you can in that window.'
+      },
+      {
+        title: 'End-of-Day Routine',
+        description: 'Make it the last thing you do before bed.'
+      }
+    ]
+  },
 export const buildHabits = Object.values(habitsData).filter(habit => habit.type === 'build')
 export const breakHabits = Object.values(habitsData).filter(habit => habit.type === 'break')
