@@ -188,6 +188,111 @@ export const habitsData = {
       }
     ]
   },
+  'eat-fruit': {
+    id: 'eat-fruit',
+    name: 'Eat Fruit',
+    type: 'build',
+    image: 'https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=80&h=80&fit=crop&crop=center',
+    description: 'Boosts immunity, supports digestion, and provides natural energy. Regular fruit consumption provides essential vitamins, minerals, and fiber for optimal health.',
+    methods: [
+      {
+        title: 'Morning Kickoff',
+        description: 'Eat one piece of fruit before breakfast to start your day.'
+      },
+      {
+        title: 'Placement Strategy',
+        description: 'Keep fruit visible and washed in a bowl on your kitchen counter.'
+      },
+      {
+        title: 'Pair with Existing Habit',
+        description: 'Eat fruit while watching YouTube or during screen breaks.'
+      }
+    ]
+  },
+  'study-finance': {
+    id: 'study-finance',
+    name: 'Study Finance',
+    type: 'build',
+    image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=80&h=80&fit=crop&crop=center',
+    description: 'Financial literacy gives freedom, reduces anxiety, and enables smart decision-making. Understanding money management is crucial for long-term financial security and peace of mind.',
+    methods: [
+      {
+        title: 'Microlearning',
+        description: 'Watch 1 finance video or read 1 finance page daily.'
+      },
+      {
+        title: 'Set a Goal',
+        description: 'Choose a financial milestone to work toward (e.g., budgeting or investing).'
+      },
+      {
+        title: 'Use Apps',
+        description: 'Subscribe to newsletters or podcasts like Morning Brew or Planet Money.'
+      }
+    ]
+  },
+  'help-someone': {
+    id: 'help-someone',
+    name: 'Help Someone I Love',
+    type: 'build',
+    image: 'https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=80&h=80&fit=crop&crop=center',
+    description: 'Builds deeper connections, increases happiness, and enhances emotional intelligence. Acts of kindness strengthen relationships and contribute to personal fulfillment.',
+    methods: [
+      {
+        title: 'Daily Intent',
+        description: 'Set a reminder to do one kind act per day.'
+      },
+      {
+        title: 'Gratitude Message',
+        description: 'Send a short text expressing appreciation to someone.'
+      },
+      {
+        title: 'Pair with Reflection',
+        description: 'Write about the impact in a journal for positive reinforcement.'
+      }
+    ]
+  },
+  'pray': {
+    id: 'pray',
+    name: 'Pray',
+    type: 'build',
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=center',
+    description: 'Provides peace, purpose, and a moment of spiritual reflection. Prayer offers comfort, guidance, and helps maintain spiritual connection and inner peace.',
+    methods: [
+      {
+        title: 'Anchor Habit',
+        description: 'Tie to existing habits like waking up or sleeping.'
+      },
+      {
+        title: 'Use Prompts',
+        description: 'Pray for specific things like strength, gratitude, or goals.'
+      },
+      {
+        title: 'Quiet Space',
+        description: 'Create a small corner that invites peace and routine.'
+      }
+    ]
+  },
+  'cut-calories': {
+    id: 'cut-calories',
+    name: 'Cut Down to Calorie Goal',
+    type: 'build',
+    image: 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=80&h=80&fit=crop&crop=center',
+    description: 'Supports healthy weight, energy regulation, and long-term wellness. Managing calorie intake helps maintain optimal health and energy levels throughout the day.',
+    methods: [
+      {
+        title: 'Food Logging',
+        description: 'Use apps like MyFitnessPal to build awareness.'
+      },
+      {
+        title: 'Visual Plate',
+        description: 'Fill half your plate with vegetables/fruits.'
+      },
+      {
+        title: 'Delay Cravings',
+        description: 'Pause 10 minutes before snacking to curb impulses.'
+      }
+    ]
+  },
   'procrastination': {
     id: 'procrastination',
     name: 'Stop Procrastinating',
