@@ -384,5 +384,6 @@ export const habitsData = {
       }
     ]
   },
+}
 export const buildHabits = Object.values(habitsData).filter(habit => habit.type === 'build')
 export const breakHabits = Object.values(habitsData).filter(habit => habit.type === 'break')
