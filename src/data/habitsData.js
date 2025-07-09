@@ -293,6 +293,27 @@ export const habitsData = {
       }
     ]
   },
+  'journaling': {
+    id: 'journaling',
+    name: 'Daily Journaling',
+    type: 'build',
+    image: 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=80&h=80&fit=crop&crop=center',
+    description: 'Journaling improves self-awareness, emotional clarity, memory retention, and stress relief. It also helps track personal growth and gives you a safe space to process thoughts.',
+    methods: [
+      {
+        title: 'Start Simple',
+        description: 'Begin with just one sentence a day (e.g., "What\'s one thing I noticed today?").'
+      },
+      {
+        title: 'Use Prompts',
+        description: 'Keep a list of go-to questions like "What am I grateful for?" or "What challenged me today?"'
+      },
+      {
+        title: 'Tie to Bedtime',
+        description: 'Make it your last action of the night to reflect and clear your mind before sleep.'
+      }
+    ]
+  },
   'procrastination': {
     id: 'procrastination',
     name: 'Stop Procrastinating',

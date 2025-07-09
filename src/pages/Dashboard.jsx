@@ -61,28 +61,28 @@ export default function Dashboard() {
           <h2 className="progress-title">Today's Progress</h2>
           <div className="progress-circle-container">
             <div className="progress-circle">
-              <svg width="160" height="160" className="progress-svg">
+              <svg width="180" height="180" className="progress-svg">
                 <circle
-                  cx="80"
-                  cy="80"
-                  r="70"
+                  cx="90"
+                  cy="90"
+                  r="75"
                   stroke="#e2e8f0"
-                  strokeWidth="8"
+                  strokeWidth="10"
                   fill="none"
                   className="progress-bg"
                 />
                 <circle
-                  cx="80"
-                  cy="80"
-                  r="70"
+                  cx="90"
+                  cy="90"
+                  r="75"
                   stroke="url(#progressGradient)"
-                  strokeWidth="8"
+                  strokeWidth="10"
                   fill="none"
                   strokeLinecap="round"
-                  strokeDasharray={`${2 * Math.PI * 70}`}
-                  strokeDashoffset={`${2 * Math.PI * 70 * (1 - progress.percentage / 100)}`}
+                  strokeDasharray={`${2 * Math.PI * 75}`}
+                  strokeDashoffset={`${2 * Math.PI * 75 * (1 - progress.percentage / 100)}`}
                   className="progress-fill"
-                  transform="rotate(-90 80 80)"
+                  transform="rotate(-90 90 90)"
                 />
                 <defs>
                   <linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="0%">

@@ -184,10 +184,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 180px;
+  height: 180px;
 }
 
 .progress-svg {
   filter: drop-shadow(0 6px 12px rgba(102, 126, 234, 0.2));
+  width: 180px;
+  height: 180px;
 }
 
 .progress-fill {
@@ -202,10 +206,16 @@ body {
   transform: translate(-50%, -50%);
   text-align: center;
   z-index: 2;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .progress-percentage {
-  font-size: 36px;
+  font-size: 32px;
   font-weight: 700;
   color: var(--text-primary);
   line-height: 1;
@@ -214,14 +224,17 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  text-align: center;
 }
 
 .progress-fraction {
-  font-size: 15px;
+  font-size: 14px;
   color: var(--text-primary);
   font-weight: 600;
   line-height: 1.2;
   opacity: 0.8;
+  text-align: center;
+  white-space: nowrap;
 }
 
 /* Mobile-first responsive grid */
