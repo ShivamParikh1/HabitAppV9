@@ -725,6 +725,87 @@ export const habitPreferencesConfig = {
     ],
     completionType: 'single',
     getTargetCount: () => 1
+  },
+  'journaling': {
+    fields: [
+      {
+        key: 'writingDuration',
+        label: 'Writing Duration (minutes)',
+        type: 'number',
+        min: 1,
+        max: 60,
+        defaultValue: 10,
+        required: true,
+        description: 'How long do you want to spend journaling each day?'
+      },
+      {
+        key: 'journalType',
+        label: 'Journal Type',
+        type: 'select',
+        options: [
+          { value: 'gratitude', label: 'Gratitude Journal' },
+          { value: 'reflection', label: 'Daily Reflection' },
+          { value: 'stream', label: 'Stream of Consciousness' },
+          { value: 'goal-tracking', label: 'Goal Tracking' },
+          { value: 'creative', label: 'Creative Writing' },
+          { value: 'mixed', label: 'Mixed/Flexible' }
+        ],
+        defaultValue: 'reflection',
+        description: 'What type of journaling interests you most?'
+      },
+      {
+        key: 'preferredTime',
+        label: 'Preferred Writing Time',
+        type: 'select',
+        options: [
+          { value: 'morning', label: 'Morning (6-10 AM)' },
+          { value: 'afternoon', label: 'Afternoon (12-4 PM)' },
+          { value: 'evening', label: 'Evening (6-9 PM)' },
+          { value: 'bedtime', label: 'Before Bed (9-11 PM)' }
+        ],
+        defaultValue: 'bedtime',
+        description: 'When do you prefer to write in your journal?'
+      },
+      {
+        key: 'writingPrompts',
+        label: 'Use Writing Prompts',
+        type: 'select',
+        options: [
+          { value: 'always', label: 'Always use prompts' },
+          { value: 'sometimes', label: 'Sometimes use prompts' },
+          { value: 'rarely', label: 'Rarely use prompts' },
+          { value: 'never', label: 'Free writing only' }
+        ],
+        defaultValue: 'sometimes',
+        description: 'How often would you like to use writing prompts?'
+      },
+      {
+        key: 'journalFormat',
+        label: 'Journal Format',
+        type: 'select',
+        options: [
+          { value: 'digital', label: 'Digital (app/computer)' },
+          { value: 'physical', label: 'Physical notebook' },
+          { value: 'both', label: 'Both digital and physical' }
+        ],
+        defaultValue: 'digital',
+        description: 'How do you prefer to journal?'
+      },
+      {
+        key: 'privacyLevel',
+        label: 'Privacy Preference',
+        type: 'select',
+        options: [
+          { value: 'completely-private', label: 'Completely private' },
+          { value: 'selective-sharing', label: 'Share selected entries' },
+          { value: 'progress-only', label: 'Share progress only' }
+        ],
+        defaultValue: 'completely-private',
+        description: 'How private do you want your journaling to be?'
+      }
+    ],
+    completionType: 'single',
+    getTargetCount: () => 1
   }
 }
 
