@@ -14,32 +14,67 @@ export function AuthProvider({ children }) {
   // SIGN UP
   async function signup(email, password, name) {
     try {
+      // Create user account
       const user = await account.create(ID.unique(), email, password, name);
-      const session = await account.createEmailSession(email, password); // auto-login after signup
-      setCurrentUser(user);
+      
+      // Auto-login after signup
+      const session = await account.createEmailSession(email, password);
+      
+      // Get updated user info
+      const userInfo = await account.get();
+      setCurrentUser(userInfo);
 
-      // Save user data in Appwrite DB (if you’ve created a "users" collection)
-      await databases.createDocument(
-        'main',         // database ID (you'll set this later)
-        'users',        // collection ID
-        user.$id,
-        {
-          name,
-          email,
-          verified: false,
-          createdAt: new Date().toISOString(),
-          lastLogin: new Date().toISOString(),
-          habits: {},
-          habitCompletion: {},
-          activityLog: {},
-          habitPreferences: {}
-        }
-      );
+      // Create user document in database
+      try {
+        await databases.createDocument(
+          '687073050007516b353d', // database ID (same as project ID)
+          'users',                 // collection ID
+          user.$id,
+          {
+            name,
+            email,
+            emailVerified: false,
+            createdAt: new Date().toISOString(),
+            lastLogin: new Date().toISOString(),
+            habits: {},
+            habitCompletion: {},
+            activityLog: {},
+            habitPreferences: {},
+            habitStacks: {},
+            dailyStats: {},
+            reflections: {},
+            journalEntries: [],
+            calendarEvents: [],
+            todoItems: [],
+            mealLogs: {},
+            waterIntake: {},
+            mealTrackerSettings: { waterGoal: 8 },
+            futureLetters: [],
+            gratitudeEntries: [],
+            dayReflections: [],
+            bucketListItems: [],
+            transactions: [],
+            budgets: {},
+            savingsGoals: [],
+            financeSettings: {},
+            schoolTasks: [],
+            schoolSubjects: [],
+            schoolGrades: [],
+            studySchedule: [],
+            schoolSettings: {},
+            passwordEntries: [],
+            vaultPin: ''
+          }
+        );
+      } catch (dbError) {
+        console.error('Error creating user document:', dbError);
+        // Continue even if document creation fails
+      }
 
-      return { success: true };
+      return { user: userInfo };
     } catch (error) {
       console.error('Signup error:', error);
-      return { success: false, error: error.message };
+      throw error;
     }
   }
 
@@ -50,17 +85,22 @@ export function AuthProvider({ children }) {
       const user = await account.get();
       setCurrentUser(user);
 
-      // Optionally update lastLogin in the DB
-      await databases.updateDocument(
-        'main',
-        'users',
-        user.$id,
-        { lastLogin: new Date().toISOString() }
-      );
+      // Update lastLogin in the database
+      try {
+        await databases.updateDocument(
+          '687073050007516b353d',
+          'users',
+          user.$id,
+          { lastLogin: new Date().toISOString() }
+        );
+      } catch (dbError) {
+        console.error('Error updating last login:', dbError);
+      }
 
-      return { success: true };
+      return { user };
     } catch (error) {
-      return { success: false, error: error.message };
+      console.error('Login error:', error);
+      throw error;
     }
   }
 
@@ -71,31 +111,43 @@ export function AuthProvider({ children }) {
       setCurrentUser(null);
     } catch (error) {
       console.error('Logout error:', error);
+      throw error;
     }
   }
 
   // FORGOT PASSWORD
   async function resetPassword(email) {
     try {
-      await account.createRecovery(email, 'https://yourapp.com/reset-password');
+      await account.createRecovery(
+        email, 
+        `${window.location.origin}/reset-password`
+      );
       return { success: true };
     } catch (error) {
-      return { success: false, error: error.message };
+      console.error('Reset password error:', error);
+      throw error;
     }
   }
 
   // Get user data from Appwrite database
   async function getUserData(uid) {
     try {
-      const doc = await databases.getDocument('main', 'users', uid);
+      const doc = await databases.getDocument('687073050007516b353d', 'users', uid);
       return doc;
     } catch (error) {
+      console.error('Error getting user data:', error);
       return null;
     }
   }
 
+  // Update user data in Appwrite database
   async function updateUserData(uid, data) {
-    return await databases.updateDocument('main', 'users', uid, data);
+    try {
+      return await databases.updateDocument('687073050007516b353d', 'users', uid, data);
+    } catch (error) {
+      console.error('Error updating user data:', error);
+      throw error;
+    }
   }
 
   // Auto-login if session exists
