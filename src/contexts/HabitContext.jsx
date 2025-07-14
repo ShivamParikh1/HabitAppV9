@@ -1,7 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react'
 import { useAuth } from './AuthContext'
-import { doc, setDoc } from 'firebase/firestore'
-import { db } from '../firebase/config'
 
 const HabitContext = createContext()
 
@@ -22,7 +20,7 @@ export function HabitProvider({ children }) {
 
   // Load user data when user changes
   useEffect(() => {
-    if (currentUser && currentUser.emailVerified) {
+    if (currentUser && currentUser.emailVerification) {
       loadUserData()
     } else {
       resetAllData()
@@ -43,7 +41,7 @@ export function HabitProvider({ children }) {
   async function loadUserData() {
     try {
       setLoading(true)
-      const userData = await getUserData(currentUser.uid)
+      const userData = await getUserData(currentUser.$id)
       if (userData) {
         setHabits(userData.habits || {})
         setHabitCompletion(userData.habitCompletion || {})
@@ -72,11 +70,10 @@ export function HabitProvider({ children }) {
         habitStacks,
         dailyStats,
         reflections,
-        lastUpdated: new Date()
+        lastUpdated: new Date().toISOString()
       }
       
-      // Use setDoc with merge to safely update or create the document
-      await setDoc(doc(db, "users", currentUser.uid), userData, { merge: true })
+      await updateUserData(currentUser.$id, userData)
     } catch (error) {
       console.error('Error saving user data:', error)
     }
@@ -228,7 +225,7 @@ export function HabitProvider({ children }) {
     // Get habits that existed on this specific date
     const habitsOnDate = Object.values(habits).filter(habit => {
       const habitCreatedDate = new Date(habit.createdAt).toISOString().split('T')[0]
-      return habitCreatedDate <= dateStr
+      return habitCreatedDate <= date
     })
     
     // Count completed habits on this date
@@ -288,6 +285,7 @@ export function HabitProvider({ children }) {
   function getWeeklyProgress() {
     const weekData = []
     const today = new Date()
+    
     
     for (let i = 6; i >= 0; i--) {
       const date = new Date(today)
@@ -349,7 +347,7 @@ export function HabitProvider({ children }) {
     const habit = habits[habitId]
     if (habit) {
       const { getHabitTargetCount } = require('../data/habitPreferences')
-      const newTargetCount = getHabitTargetCount(habitId, preferences)
+      const newTargetCount = getHabitTargetCount(habit, preferences)
       
       if (newTargetCount !== habit.targetCount) {
         const newHabits = {
@@ -379,7 +377,7 @@ export function HabitProvider({ children }) {
     return stackId
   }
 
-  function updateHabitStack(stackId, stackData) {
+  function updateHabitStack(stack, stackData) {
     const newStacks = {
       ...habitStacks,
       [stackId]: {
@@ -392,7 +390,7 @@ export function HabitProvider({ children }) {
   }
 
   function deleteHabitStack(stackId) {
-    const newStacks = { ...habitStacks }
+    const newStacks = {  ...habitStacks }
     delete newStacks[stackId]
     setHabitStacks(newStacks)
   }
@@ -431,6 +429,7 @@ export function HabitProvider({ children }) {
   }
 
   // Auto-save when data changes with debouncing
+  
   useEffect(() => {
     if (!loading && currentUser) {
       const timeoutId = setTimeout(() => {
@@ -455,7 +454,7 @@ export function HabitProvider({ children }) {
     activityLog,
     habitPreferences,
     habitStacks,
-    dailyStats,
+    dail Stats,
     reflections,
     loading,
     addHabit,
@@ -468,7 +467,7 @@ export function HabitProvider({ children }) {
     getWeeklyProgress,
     getHabitPreferences,
     updateHabitPreferences,
-    createHabitStack,
+    createHa itStack,
     updateHabitStack,
     deleteHabitStack,
     getHabitStacks,
