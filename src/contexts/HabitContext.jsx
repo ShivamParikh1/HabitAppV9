@@ -190,7 +190,7 @@ export function HabitProvider({ children }) {
   }
 
   function uncompleteHabit(habitId) {
-    const today = new Date().toDateString()
+    const today = new Date().to DateString()
     const habit = habits[habitId]
     
     if (!habit || !habit.completedDays || !habit.completedDays.includes(today)) {
@@ -201,7 +201,7 @@ export function HabitProvider({ children }) {
     const updatedHabit = { ...newHabits[habitId] }
     
     // Remove today from completed days
-    updatedHabit.completedDays = updatedHabit.completedDays.filter(date => date !== today)
+    updatedHa bit.completedDays = updatedHabit.completedDays.filter(date => date !== today)
     
     // Decrease streak and total days
     updatedHabit.streak = Math.max(0, (updatedHabit.streak || 0) - 1)
@@ -224,8 +224,8 @@ export function HabitProvider({ children }) {
   function updateDailyStatsForDate(dateStr) {
     // Get habits that existed on this specific date
     const habitsOnDate = Object.values(habits).filter(habit => {
-      const habitCreatedDate = new Date(habit.createdAt).toISOString().split('T')[0]
-      return habitCreatedDate <= date
+      const habitCreatedDate = new Date(habit.createdAt).to ISOString().split('T')[0]
+      return habitCreatedDate <= dateStr
     })
     
     // Count completed habits on this date
@@ -233,7 +233,7 @@ export function HabitProvider({ children }) {
     const dateString = dateObj.toDateString()
     
     const completedHabits = habitsOnDate.filter(habit => {
-      return habit.completedDays && habit.completedDays.includes(dateString)
+      return habit.completedDays && habit.completedDays.includes(date String)
     }).length
     
     const totalHabits = habitsOnDate.length
@@ -243,7 +243,7 @@ export function HabitProvider({ children }) {
       newDailyStats[dateStr] = {
         habitsCompleted: completedHabits,
         habitsTotal: totalHabits,
-        percentage: Math.round((completedHabits / totalHabits) * 100)
+        percentage: Math.round((completedH abits / totalHabits) * 100)
       }
     } else {
       delete newDailyStats[dateStr]
@@ -267,7 +267,7 @@ export function HabitProvider({ children }) {
     let streak = 0
     const today = new Date().toISOString().split('T')[0]
     
-    let currentDate = new Date()
+    let current Date = new Date()
     
     while (true) {
       const dateStr = currentDate.toISOString().split('T')[0]
@@ -282,7 +282,7 @@ export function HabitProvider({ children }) {
     return streak
   }
 
-  function getWeeklyProgress() {
+  function getWeeklyProgress()  {
     const weekData = []
     const today = new Date()
     
@@ -293,6 +293,7 @@ export function HabitProvider({ children }) {
       const dateStr = date.toISOString().split('T')[0]
       
       // Use stored daily stats if available, otherwise calculate
+      
       let percentage = 0
       let completedHabits = 0
       let totalHabits = 0
@@ -310,7 +311,7 @@ export function HabitProvider({ children }) {
         
         const dateString = date.toDateString()
         completedHabits = habitsOnDate.filter(habit => {
-          return habit.completedDays && habit.completedDays.includes(dateString)
+          return habit.complet edDays && habit.completedDays.includes(dateString)
         }).length
         
         totalHabits = habitsOnDate.length
@@ -346,7 +347,7 @@ export function HabitProvider({ children }) {
     // Update habit target count if it changed
     const habit = habits[habitId]
     if (habit) {
-      const { getHabitTargetCount } = require('../data/habitPreferences')
+      const { getHabitTargetCount } = require('../data/habitPre ferences')
       const newTargetCount = getHabitTargetCount(habit, preferences)
       
       if (newTargetCount !== habit.targetCount) {
@@ -373,11 +374,11 @@ export function HabitProvider({ children }) {
         createdAt: new Date().toISOString()
       }
     }
-    setHabitStacks(newStacks)
+    setHabitStacks(new Stacks)
     return stackId
   }
 
-  function updateHabitStack(stack, stackData) {
+  function updateHabitStack(stackId, stackData) {
     const newStacks = {
       ...habitStacks,
       [stackId]: {
@@ -390,7 +391,7 @@ export function HabitProvider({ children }) {
   }
 
   function deleteHabitStack(stackId) {
-    const newStacks = {  ...habitStacks }
+    const newStacks = { ...habitStacks }
     delete newStacks[stackId]
     setHabitStacks(newStacks)
   }
@@ -400,7 +401,7 @@ export function HabitProvider({ children }) {
   }
 
   // Journal/Reflection functions
-  function addReflection(text, rating = null) {
+  function addReflection(text, rating =  null) {
     const reflectionId = Date.now().toString()
     const newReflections = {
       ...reflections,
@@ -438,7 +439,7 @@ export function HabitProvider({ children }) {
 
       return () => clearTimeout(timeoutId)
     }
-  }, [habits, habitCompletion, activityLog, habitPreferences, habitStacks, dailyStats, reflections])
+  }, [habits, habitCompletion,  activityLog, habitPreferences, habitStacks, dailyStats, reflections])
 
   // Update daily stats when habits change
   useEffect(() => {
@@ -450,11 +451,11 @@ export function HabitProvider({ children }) {
 
   const value = {
     habits,
-    habitCompletion,
+    habit Completion,
     activityLog,
     habitPreferences,
     habitStacks,
-    dail Stats,
+    dailyStats,
     reflections,
     loading,
     addHabit,
@@ -464,10 +465,10 @@ export function HabitProvider({ children }) {
     isHabitCompletedToday,
     getActiveHabitsCount,
     getCurrentStreak,
-    getWeeklyProgress,
+    getWeekly Progress,
     getHabitPreferences,
     updateHabitPreferences,
-    createHa itStack,
+    createHabitStack,
     updateHabitStack,
     deleteHabitStack,
     getHabitStacks,
